@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="libs/polyfill.js"></script>
+        <script src="libs/system.js"></script>
+        <script>
+        System.config({
+            packages: {
+                js: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                },
+            },
+                meta: {
+                    'js/*': {format: 'cjs'}   // our modules have been transpiled to commonJS
+                }
+        });
+
+         System.import('js/more-codes.js')
+                     .then(null, console.error.bind(console));
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
