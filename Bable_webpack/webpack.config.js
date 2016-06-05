@@ -1,16 +1,13 @@
-var path = require('path');
-var webpack = require('webpack');
-
 module.exports = {
-	resolve: {
-		moduleDirectories: ["bower_components", "node_modules"]
-	},
-	plugins: [
-		new webpack.ResolverPlugin(
-			new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
-		)
-	],
+	entry: './app/js/entry.js',
 	output: {
 		filename: 'bundle.js'
+	},
+	module: {
+		loaders: [{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: 'babel-loader'
+		}]	
 	}
 }
