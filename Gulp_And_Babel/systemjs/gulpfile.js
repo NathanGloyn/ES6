@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 var babel = require('gulp-babel');
 var Builder = require('systemjs-builder');
-var webserver = require('gulp-webserver');
+var serve = require('gulp-serve');
 
 gulp.task('clean', function(){
     return gulp.src('build/')
@@ -14,12 +14,9 @@ gulp.task('build',['clean'], function() {
 			   .pipe(gulp.dest('build'));
 });
 
-gulp.task('serve',['default'],function(){
-	gulp.src('build')
-		.pipe(webserver({open:true}));
-});
+gulp.task('serve',['default'], serve(['build']));
 
 gulp.task('default',['build'], function(){
 	var builder = new Builder('app/js','builder.config.js');
-	builder.buildStatic('more-codes.js', 'build/js/bundle.js', { runTime: false, sourceMaps: true, minify: true }); 
+	builder.buildStatic('entry.js', 'build/js/bundle.js', { runTime: false, sourceMaps: true, minify: true }); 
 });

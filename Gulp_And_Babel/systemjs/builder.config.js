@@ -1,7 +1,4 @@
 System.config({
-    map: {
-        codes : 'codes.js'
-    },
     packages: {
         js: {
             format: 'register',

@@ -1,7 +1,14 @@
+import logThing from './extra.js';
+
+
 export const aValue = 123;
 
 export function greeting(){
 	return 'Hello!';
+}
+
+export function nameTheThing(name){
+	logThing(name);
 }
 
 export function add(a, b){
@@ -16,4 +23,3 @@ export function add(a, b){
 	return a + b;
 	
 }
-
